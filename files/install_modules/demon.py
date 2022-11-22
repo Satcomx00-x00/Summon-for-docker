@@ -94,18 +94,18 @@ class Application():
             self.files.check_path_mkdir(f"/home/{self.user}/.local/share/gedit/styles")
             self.files.download_file("https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml",f"/home/{self.user}/.local/share/gedit/styles/dracula.xml",True)
             
-            ## Install Dracula Grub Theme:
-            self.files.check_path_mkdir("/boot/grub/themes") ## Make this directory
-            ## download the grub.zip file into /boot/grub/themes/
-            self.files.download_file(self.demon_repo+"grub.zip","/boot/grub/themes/grub.zip",True)
-            os.chdir("/boot/grub/themes")
-            self.shell.run_cmd(["unzip","-o","grub.zip"])
-            ## download grub.txt and overwrite /etc/default/grub:
-            self.files.download_file(self.demon_repo+"grub.txt","/etc/default/grub",True)
-            ## update Grub:
-            self.shell.run_cmd(["grub-mkconfig","-o","/boot/grub/grub.cfg"])
-            self.shell.run_cmd(["update-grub"])
-            self.repo.update_autostart_script(self.user)
+#             ## Install Dracula Grub Theme:
+#             self.files.check_path_mkdir("/boot/grub/themes") ## Make this directory
+#             ## download the grub.zip file into /boot/grub/themes/
+#             self.files.download_file(self.demon_repo+"grub.zip","/boot/grub/themes/grub.zip",True)
+#             os.chdir("/boot/grub/themes")
+#             self.shell.run_cmd(["unzip","-o","grub.zip"])
+#             ## download grub.txt and overwrite /etc/default/grub:
+#             self.files.download_file(self.demon_repo+"grub.txt","/etc/default/grub",True)
+#             ## update Grub:
+#             self.shell.run_cmd(["grub-mkconfig","-o","/boot/grub/grub.cfg"])
+#             self.shell.run_cmd(["update-grub"])
+#             self.repo.update_autostart_script(self.user)
 
         else:
             os.unlink("/root/root.tgz") ## delete it

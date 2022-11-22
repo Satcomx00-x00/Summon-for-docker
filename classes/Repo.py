@@ -196,10 +196,10 @@ class Repo():
     ## Ensure the health/existence of the config file:
     def check_config_file(self):
         if not os.path.exists("/etc/demon/summon.conf"):
-            ans=input(f"{self.style.ques} We are running from {self.style.RED}{self.cwd}{self.style.RST} Would you like to make this your Summon binary path [y/n]? ")
-            if ans=="y":
-                config=ConfigParser()
-                config['SUMMON']= {"summon_path":self.cwd}
+#             ans=input(f"{self.style.ques} We are running from {self.style.RED}{self.cwd}{self.style.RST} Would you like to make this your Summon binary path [y/n]? ")
+#             if ans=="y":
+            config=ConfigParser()
+            config['SUMMON']= {"summon_path":self.cwd}
             with open("/etc/demon/summon.conf","w") as config_file:
                 config.write(config_file)
 

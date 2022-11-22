@@ -5,6 +5,7 @@
 ##
 gitinstall=1 ## by default we will install this
 pipinstall=1 ## By default we will install this
+ans='y'
 printf "\n[i] Welcome to Summon! (2022 @RackunSec)\n"
 if [ $EUID -ne 0 ]
 then
@@ -32,7 +33,6 @@ else
     fi
     printf "  -- Python3 pip modules\n\n"
     printf "[?] Shall I continue? [y/n] "
-    read ans
     if [[ "$ans" == "y" ]]
     then
         if [ $gitinstall -eq 1 ] || [ $pipinstall -eq 1 ]
